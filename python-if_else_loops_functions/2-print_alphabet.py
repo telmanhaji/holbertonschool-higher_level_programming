@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# This script loops through ASCII numbers 98-122
+# This script loops through alphabet (ASCII numbers 98-122)
 # 98 is a, 99 is b, 100 is c, etc
 # and prints their character values.
 
