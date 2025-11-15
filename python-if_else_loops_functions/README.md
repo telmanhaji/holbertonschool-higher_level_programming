@@ -1,5 +1,3 @@
----
-
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to **explain to anyone**, **without the help of Google**:
@@ -18,7 +16,7 @@ At the end of this project, you are expected to be able to **explain to anyone**
 * What is a function and how do you use functions
 * What does return a function that does not use any `return` statement
 * Scope of variables
-* What is a traceback
+* What’s a traceback
 * What are the arithmetic operators and how to use them
 
 ---
