@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner Python Concepts Explained</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for code blocks */
+        pre {
+            background-color: #1f2937; /* gray-800 */
+            color: #f3f4f6; /* gray-100 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+        /* Style for inline code */
+        code:not(pre > code) {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #be185d; /* pink-700 */
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem; /* rounded */
+            font-weight: 500;
+        }
+        /* Add a little more space between list items */
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 py-10 px-4">
+    <div class="max-w-3xl mx-auto bg-white p-6 sm:p-10 rounded-2xl shadow-lg">
+
+        <!-- Header -->
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Python Concepts for Beginners</h1>
+        <p class="text-lg text-gray-600 mb-10">Here are simple, beginner-friendly explanations for each of those topics.</p>
+
+        <!-- Container for all topics -->
+        <div class="space-y-12">
+
+            <!-- 1. Indentation -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">1. Why is indentation so important in Python? 📐</h2>
+                <p class="text-gray-700 mb-4">
+                    Indentation (the spaces at the beginning of a line) is how Python groups code together.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    In other languages, you might use curly braces <code>{}</code> to show what code belongs inside a loop or an <code>if</code> statement. Python doesn't use braces. It uses clean, mandatory indentation.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Analogy:</strong> Think of it like a recipe.
+                </p>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 text-blue-800">
+                    <p class="font-semibold">Step 1: Make salad</p>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>Chop lettuce</li>
+                        <li>Add tomatoes</li>
+                        <li>Pour dressing</li>
+                    </ul>
+                </div>
+                <p class="text-gray-700 mt-4">
+                    Those indented steps all belong to "Make salad." In Python, all the indented code belongs to the line above it that ends in a colon (<code>:</code>). It's not just a style choice; it's the law of the language.
+                </p>
+            </section>
+
+            <!-- 2. If / Else -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">2. How to use <code>if</code>, <code>if ... else</code> statements?</h2>
+                <p class="text-gray-700 mb-4">
+                    These are for making decisions. Think of <code>if</code> as asking a "Yes/No" question.
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-4">
+                    <li><strong><code>if</code>:</strong> Runs code only if the answer is "Yes" (<code>True</code>).</li>
+                    <li><strong><code>else</code>:</strong> Runs code only if the answer was "No" (<code>False</code>).</li>
+                </ul>
+<pre><code class="language-python"># Ask the question
+age = 20
+
+if age >= 18:
+  # This runs because the answer is "Yes"
+  print("You are an adult.")
+else:
+  # This gets skipped
+  print("You are not an adult.")
+</code></pre>
+            </section>
+
+            <!-- 3. Comments -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">3. How to use comments? 📝</h2>
+                <p class="text-gray-700 mb-4">
+                    Comments are notes for humans. Python ignores them completely. You use them to leave reminders for yourself or explain why you did something.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    Just start a line with the hash symbol (<code>#</code>).
+                </p>
+<pre><code class="language-python"># This is a comment. Python will not run this line.
+
+x = 10  # You can also put comments at the end of a line
+</code></pre>
+            </section>
+
+            <!-- 4. Variables -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">4. How to assign values to variables? 📦</h2>
+                <p class="text-gray-700 mb-4">
+                    A variable is a labeled box for storing a value. The equals sign (<code>=</code>) is the "assignment" operator. It means "put this value in this box."
+                </p>
+<pre><code class="language-python"># Put the number 10 into a box named 'age'
+age = 10
+
+# Put the text "Alice" into a box named 'name'
+name = "Alice"
+
+# Now we can just use the box's name
+print(f"Hello, {name}! You are {age}.")
+</code></pre>
+            </section>
+
+            <!-- 5. Loops -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">5. How to use <code>while</code> and <code>for</code> loops? 🔄</h2>
+                <p class="text-gray-700 mb-4">
+                    Loops are for repeating actions.
+                </p>
+
+                <h3 class="text-lg font-semibold text-gray-800 mb-2"><code>while</code> loop:</h3>
+                <p class="text-gray-700 mb-4">
+                    The "keep going as long as" loop. You use it when you don't know how many times you need to loop.
+                    <br><strong>Analogy:</strong> "While the music is playing, keep dancing."
+                </p>
+<pre><code class="language-python">i = 1
+while i <= 5:
+  print(i)
+  i = i + 1  # Don't forget to update the counter!
+</code></pre>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2"><code>for</code> loop:</h3>
+                <p class="text-gray-700 mb-4">
+                    The "do this for every item" loop. You use it when you have a list of things.
+                    <br><strong>Analogy:</strong> "For every song on this playlist, play the song."
+                </p>
+<pre><code class="language-python">for letter in "Hello":
+  print(letter)
+</code></pre>
+            </section>
+
+            <!-- 6. Break / Continue -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">6. How to use <code>break</code> and <code>continue</code>?</h2>
+                <p class="text-gray-700 mb-4">
+                    These are special commands to control a loop from the inside.
+                </p>
+
+                <h3 class="text-lg font-semibold text-gray-800 mb-2"><code>break</code> 🛑 (Emergency Stop):</h3>
+                <p class="text-gray-700 mb-4">
+                    This stops the entire loop immediately and jumps out.
+                </p>
+<pre><code class="language-python"># This loop will stop when i gets to 5
+for i in range(10):
+  if i == 5:
+    break  # Stop the loop
+  print(i) # Will print 0, 1, 2, 3, 4
+</code></pre>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2"><code>continue</code> ⏭️ (Skip):</h3>
+                <p class="text-gray-700 mb-4">
+                    This skips the rest of the current iteration and jumps to the next one.
+                </p>
+<pre><code class="language-python"># This loop will skip printing the number 5
+for i in range(10):
+  if i == 5:
+    continue  # Skip this one
+  print(i) # Will print 0,1,2,3,4,6,7,8,9
+</code></pre>
+            </section>
+
+            <!-- 7. Else on Loops -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">7. How to use <code>else</code> clauses on loops?</h2>
+                <p class="text-gray-700 mb-4">
+                    This is a rare but useful feature. The <code>else</code> block on a loop runs <strong>only</strong> if the loop finished normally (it was <strong>not</strong> stopped by a <code>break</code>).
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <strong>Analogy:</strong> Imagine searching for your keys (<code>for key in drawers:</code>).
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-4">
+                    <li>If you find them, you <code>break</code> (stop searching).</li>
+                    <li>The <code>else</code> block is what you do only if you searched all the drawers and <strong>never</strong> found them (you never broke the loop).</li>
+                </ul>
+<pre><code class="language-python">for num in [1, 3, 5]:
+  if num == 2:
+    print("Found 2!")
+    break
+else:
+  # This will run, because the loop finished without a 'break'
+  print("Did not find 2.")
+</code></pre>
+            </section>
+
+            <!-- 8. Pass -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">8. What does the <code>pass</code> statement do?</h2>
+                <p class="text-gray-700 mb-4">
+                    It does <strong>absolutely nothing</strong>.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <code>pass</code> is a placeholder. Python requires an indented line after a colon (<code>:</code>). If you're writing code and don't know what to put there yet, you can use <code>pass</code> to stop Python from giving you an error.
+                </p>
+<pre><code class="language-python">def my_new_function():
+  pass  # TODO: Write this later
+</code></pre>
+            </section>
+
+            <!-- 9. Range -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">9. How to use <code>range</code>?</h2>
+                <p class="text-gray-700 mb-4">
+                    <code>range()</code> is a "number-list generator." It's almost always used in a <code>for</code> loop to count.
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-4">
+                    <li><code>range(5)</code> gives you 5 numbers: 0, 1, 2, 3, 4</li>
+                    <li><code>range(1, 6)</code> gives you numbers from 1 up to (but not including) 6: 1, 2, 3, 4, 5</li>
+                </ul>
+<pre><code class="language-python"># A perfect way to loop 5 times
+for i in range(5):
+  print("Hello!")
+</code></pre>
+            </section>
+
+            <!-- 10. Functions -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">10. What is a function and how do you use functions? 🥪</h2>
+                <p class="text-gray-700 mb-4">
+                    A function is a reusable "recipe" for code. You <code>def</code> (define) the recipe once, and then you can "call" (use) it as many times as you want.
+                </p>
+<pre><code class="language-python"># 1. Define the "recipe" (the function)
+def say_hello(name):
+  print(f"Hello, {name}!")
+
+# 2. "Call" (use) the recipe
+say_hello("Alice")
+say_hello("Bob")
+</code></pre>
+            </section>
+
+            <!-- 11. Function Return -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">11. What does a function return if it does not use <code>return</code>?</h2>
+                <p class="text-gray-700 mb-4">
+                    It returns a special value called <strong><code>None</code></strong>.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    <code>None</code> is the Python way of saying "nothing," "empty," or "no value."
+                </p>
+            </section>
+
+            <!-- 12. Scope -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">12. Scope of variables?</h2>
+                <p class="text-gray-700 mb-4">
+                    Scope is all about where a variable lives.
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-4">
+                    <li>
+                        <strong>Local Scope (Inside a function):</strong> Variables created inside a function (like <code>name</code> in our <code>say_hello</code> example) are local. They only exist inside that function, and are "thrown away" when the function is done.
+                    </li>
+                    <li>
+                        <strong>Global Scope (Outside a function):</strong> Variables created outside any function are global. They live on the "main" level, and all your code can see them.
+                    </li>
+                </ul>
+                <p class="text-gray-700 mb-4">
+                    <strong>Analogy:</strong> A local variable is like a note you write on a scrap of paper while cooking. You use it, then throw it away. A global variable is like a message written on a giant whiteboard in the main room for everyone to see.
+                </p>
+            </section>
+
+            <!-- 13. Traceback -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">13. What’s a traceback? 💥</h2>
+                <p class="text-gray-700 mb-4">
+                    A traceback is an error report. When your script crashes, Python prints a traceback to give you "GPS directions" to the problem.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    You read it from the <strong>bottom up</strong>. The last line tells you the exact error (e.g., <code>ZeroDivisionError: division by zero</code>), and the line above it tells you which line in your file caused the crash.
+                </p>
+            </section>
+
+            <!-- 14. Arithmetic Operators -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">14. What are the arithmetic operators? 🧮</h2>
+                <p class="text-gray-700 mb-4">
+                    These are your basic math tools:
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+                    <li><code>+</code> (Addition)</li>
+                    <li><code>-</code> (Subtraction)</li>
+                    <li><code>*</code> (Multiplication)</li>
+                    <li><code>/</code> (Division) -> <code>10 / 3</code> is <code>3.333...</code></li>
+                    <li><code>**</code> (Exponent / "Power of") -> <code>2 ** 3</code> is <code>8</code></li>
+                    <li><code>//</code> (Floor Division / "Integer division") -> <code>10 // 3</code> is <code>3</code> (it throws away the remainder)</li>
+                    <li><code>%</code> (Modulo / "Remainder") -> <code>10 % 3</code> is <code>1</code> (because 10 divided by 3 is 3 with 1 left over)</li>
+                </ul>
+            </section>
+
+        </div> <!-- end .space-y-12 -->
+
+    </div> <!-- end .max-w-3xl -->
+</body>
+</html>
