@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 8-uppercase.py - function that prints a string in uppercase followed by a new line.
+# function that prints a string in uppercase followed by a new line.
 def uppercase(str):
     for c in str:
         num = ord(c)
