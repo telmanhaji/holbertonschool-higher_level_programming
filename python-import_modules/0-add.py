@@ -16,4 +16,4 @@ if __name__ == "__main__":
 
     # 3. Call the function and display the result
     #    I use f-string as required in task 0.
-    print(f"{a} + {b} = {add(a, b)}")
+    print("{} + {} = {}".format(a, b, add(a, b)))
