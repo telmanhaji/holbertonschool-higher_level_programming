@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # mandatory comment for file 0-add.py
 """this module for task "0. Import a simple function from a simple file"."""
-"""It`s imports the 'add' function and prints the result of 1 + 2."""
+"""It`s imports the 'add' function and outputs the result of 1 + 2."""
 
 # This 'if' block is the "guard".
 # The code inside it will NOT run if this file is imported.
