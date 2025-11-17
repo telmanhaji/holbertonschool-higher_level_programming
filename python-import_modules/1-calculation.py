@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# 1-calculation.py
-"""This module imports 4 functions from calculator_1.py
+
+"""This module imports 4 functions from
 and displays the results of calculations.
 """
 
