@@ -14,6 +14,4 @@ if __name__ == "__main__":
     a = 1
     b = 2
 
-    # 3. Call the function and display the result
-    #    I use f-string as required in task 0.
     print("{} + {} = {}".format(a, b, add(a, b)))
