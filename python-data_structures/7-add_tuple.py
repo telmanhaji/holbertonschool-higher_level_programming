@@ -8,8 +8,8 @@ def add_tuple(tuple_a=(), tuple_b=()):
     # We add (0, 0) to the end of whatever we received.
     # This ensures the tuple has AT LEAST 2 items.
     # Example: If tuple_a was (1,), 'a' becomes (1, 0, 0).
-    a = tuple_a + (0,0)
-    b = tuple_b + (0,0)
+    a = tuple_a + (0, 0)
+    b = tuple_b + (0, 0)
 
     # 2nd. Calculation step
     # Now we can safely access index [0] and [1] without fear of an IndexError.
