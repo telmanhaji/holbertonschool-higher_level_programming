@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def weight_average(my_list=[]):
     """
-    This module returns the weighted average of all integers tuple (<score>, <weight>)
+    returns the weighted average of all integers tuple (<score>, <weight>)
     """
     # 1st. safety check: If the list is empty, return 0 immediately.
     # Using "if not my_list" is the Pythonic way to check for empty lists.
