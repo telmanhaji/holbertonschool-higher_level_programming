@@ -20,7 +20,7 @@ def best_score(a_dictionary):
 
     for key, value in a_dictionary.items():
         # 3rd. the comparison
-        # If best_key is still None (first loop) OR current value beats the record
+        # If best_key is still None (1st loop) OR current value beats the record
         if best_key is None or value > biggest_value:
             biggest_value = value
             best_key = key
