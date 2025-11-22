@@ -10,7 +10,7 @@ def magic_calculation(a, b):
                 # the IF check jumps to 58 if False.
                 # so the math happens if the exception is NOT raised.
                 result += (a ** b) / i
-        except:
+        except Exception:
             result = b + a
             break
     return result
