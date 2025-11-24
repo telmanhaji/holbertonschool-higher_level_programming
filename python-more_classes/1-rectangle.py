@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 this module defines a class Rectangle.
-it demontrates the use of getters and setters for data validation.
+it demonstrates the use of getters and setters for data validation.
 """
 
 
