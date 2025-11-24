@@ -10,7 +10,7 @@ Rectangle = __import__('9-rectangle').Rectangle
 class Square(Rectangle):
     """
     represents a square.
-    inherits all attributes and methods (validation, area, etc.) from Rectangle.
+    inherits all attributes and methods (validation, area) from Rectangle.
     """
 
     def __init__(self, size=0):
