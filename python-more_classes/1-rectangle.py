@@ -12,13 +12,13 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """
-        initializes a rectangle.
+       initializes the rectangle.
 
         args:
-            width (int): the width of the rectangle. defaults to 0.
-            height (int): the height of the rectangle. defaults to 0.
+            width (int): The width of the rectangle. Defaults to 0.
+            height (int): The height of the rectangle. Defaults to 0.
         """
-        # note: we assign to self.width (the setter), not self.__width
+        # note: We assign to self.width (the setter), not self.__width.
         # this ensures the validation logic runs even during initialization.
         self.width = width
         self.height = height
@@ -31,12 +31,12 @@ class Rectangle:
         returns:
             int: the private width.
         """
-        return self.__height
+        return self.__width
 
     @width.setter
     def width(self, value):
         """
-        sets the width of the rectangle with validation/
+        sets the width of the rectangle with validation.
 
         args:
             value (int): the new width.
@@ -49,4 +49,32 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
+        self.__width = value
+
+    @property
+    def height(self):
+        """
+        retrieves the height of the rectangle.
+
+        returns:
+            int: the private height.
+        """
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """
+        sets the height of the rectangle with validation.
+
+        args:
+            value (int): the new height.
+
+        raises:
+            TypeError: if height is not an integer.
+            ValueError: if height is negative.
+        """
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
         self.__height = value
