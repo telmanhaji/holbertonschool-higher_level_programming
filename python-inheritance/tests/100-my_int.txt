@@ -1,0 +1,36 @@
+================================
+Test file for MyInt (The Rebel Integer)
+================================
+
+Import the class:
+    >>> MyInt = __import__('100-my_int').MyInt
+
+1. Test Instantiation and Basic Display:
+    >>> my_i = MyInt(3)
+    >>> print(my_i)
+    3
+    >>> type(my_i)
+    <class '100-my_int.MyInt'>
+
+2. Test The Rebel Operators (Equality):
+    # Normally 3 == 3 is True. MyInt makes it False.
+    >>> my_i == 3
+    False
+
+    # Normally 3 == 5 is False. MyInt makes it True.
+    >>> my_i == 5
+    True
+
+3. Test The Rebel Operators (Inequality):
+    # Normally 3 != 3 is False. MyInt makes it True.
+    >>> my_i != 3
+    True
+
+    # Normally 3 != 5 is True. MyInt makes it False.
+    >>> my_i != 5
+    False
+
+4. Test that normal math still works (Inheritance):
+    # It should still act like an int for addition
+    >>> my_i + 2
+    5
