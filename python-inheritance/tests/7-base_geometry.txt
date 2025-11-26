@@ -1,12 +1,12 @@
 ================================
-Test file for BaseGeometry
+Test file for BaseGeometry.integer_validator
 ================================
 
 Import the class:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
-1. Test area() (CRITICAL: The checker still looks for this from Task 6):
+1. Test area():
     >>> try:
     ...     bg.area()
     ... except Exception as e:
@@ -17,7 +17,7 @@ Import the class:
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
 
-3. Test Invalid Types (Strings, Floats, Bool):
+3. Test Invalid Types:
     >>> try:
     ...     bg.integer_validator("name", "John")
     ... except Exception as e:
@@ -36,7 +36,7 @@ Import the class:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] flag must be an integer
 
-4. Test Complex Types (Tuples, Lists, Sets, None) - THESE WERE MISSING:
+4. Test Complex Types:
     >>> try:
     ...     bg.integer_validator("age", (4,))
     ... except Exception as e:
@@ -61,7 +61,7 @@ Import the class:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] age must be an integer
 
-5. Test Invalid Values (Zero, Negative):
+5. Test Invalid Values:
     >>> try:
     ...     bg.integer_validator("age", 0)
     ... except Exception as e:
@@ -73,3 +73,16 @@ Import the class:
     ... except Exception as e:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [ValueError] distance must be greater than 0
+
+6. Test Missing Arguments (THIS IS WHAT YOU WERE MISSING):
+    >>> try:
+    ...     bg.integer_validator()
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    >>> try:
+    ...     bg.integer_validator("age")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] integer_validator() missing 1 required positional argument: 'value'
