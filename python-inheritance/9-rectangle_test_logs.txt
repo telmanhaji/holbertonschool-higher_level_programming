@@ -1,0 +1,61 @@
+Trying:
+    Rectangle = __import__('9-rectangle').Rectangle
+Expecting nothing
+ok
+Trying:
+    r = Rectangle(3, 5)
+Expecting nothing
+ok
+Trying:
+    print(r)
+Expecting:
+    [Rectangle] 3/5
+ok
+Trying:
+    r.area()
+Expecting:
+    15
+ok
+Trying:
+    BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Expecting nothing
+ok
+Trying:
+    isinstance(r, BaseGeometry)
+Expecting:
+    True
+ok
+Trying:
+    isinstance(r, Rectangle)
+Expecting:
+    True
+ok
+Trying:
+    try:
+        r2 = Rectangle("hello", 5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] width must be an integer
+ok
+Trying:
+    try:
+        r3 = Rectangle(3, -5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] height must be greater than 0
+ok
+Trying:
+    try:
+        r4 = Rectangle(0, 5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] width must be greater than 0
+ok
+1 items passed all tests:
+  10 tests in 9-rectangle.txt
+10 tests in 1 items.
+10 passed and 0 failed.
+Test passed.
