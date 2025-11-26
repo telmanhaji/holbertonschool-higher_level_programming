@@ -1,0 +1,44 @@
+================================
+Test file for inherits_from
+================================
+
+Import the function:
+    >>> inherits_from = __import__('4-inherits_from').inherits_from
+
+Test with Built-in types:
+    # True is a bool, and bool inherits from int.
+    # So True is an instance of int, but not exactly int.
+    >>> inherits_from(True, int)
+    True
+
+    # True is exactly a bool. So this should be False.
+    >>> inherits_from(True, bool)
+    False
+
+    # True is definitely not a string.
+    >>> inherits_from(True, str)
+    False
+
+Test with Custom Classes:
+    >>> class BaseClass:
+    ...     pass
+    >>> class SubClass(BaseClass):
+    ...     pass
+    >>> base = BaseClass()
+    >>> sub = SubClass()
+
+    # 'sub' inherits from BaseClass, but is not exactly BaseClass -> True
+    >>> inherits_from(sub, BaseClass)
+    True
+
+    # 'base' is exactly BaseClass -> False
+    >>> inherits_from(base, BaseClass)
+    False
+
+    # 'sub' is exactly SubClass -> False
+    >>> inherits_from(sub, SubClass)
+    False
+
+    # Check object hierarchy (everything inherits from object)
+    >>> inherits_from(base, object)
+    True
