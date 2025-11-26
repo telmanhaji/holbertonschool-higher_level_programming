@@ -26,7 +26,7 @@ class Square(Rectangle):
         # We tell Rectangle: "My width is size, and my height is size"
         super().__init__(size, size)
 
-        # 3. Store size specifically (though Rectangle stores it as width/height)
+        # 3. Store size specifically (Rectangle stores it as width/height)
         self.__size = size
 
     def area(self):
