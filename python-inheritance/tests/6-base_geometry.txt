@@ -1,0 +1,16 @@
+================================
+Test file for BaseGeometry.area
+================================
+
+Import the class:
+    >>> BaseGeometry = __import__('6-base_geometry').BaseGeometry
+
+Instantiate the object:
+    >>> bg = BaseGeometry()
+
+Test the area method (Expect failure):
+    >>> try:
+    ...     bg.area()
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [Exception] area() is not implemented
