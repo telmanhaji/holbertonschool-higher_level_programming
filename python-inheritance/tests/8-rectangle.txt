@@ -1,0 +1,57 @@
+================================
+Test file for Rectangle (inherits from BaseGeometry)
+================================
+
+Import the class:
+    >>> Rectangle = __import__('8-rectangle').Rectangle
+
+1. Test Valid Instantiation:
+    >>> r = Rectangle(3, 5)
+    >>> isinstance(r, Rectangle)
+    True
+    >>> # Check inheritance
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> isinstance(r, BaseGeometry)
+    True
+
+2. Test Data Hiding (Encapsulation):
+    # User cannot access width directly
+    >>> try:
+    ...     print(r.width)
+    ... except AttributeError as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [AttributeError] 'Rectangle' object has no attribute 'width'
+
+    # User cannot access __width directly
+    >>> try:
+    ...     print(r.__width)
+    ... except AttributeError as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [AttributeError] 'Rectangle' object has no attribute '__width'
+
+3. Test Validation (Strings/Types):
+    # These errors come from BaseGeometry.integer_validator
+    >>> try:
+    ...     r2 = Rectangle("hello", 5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] width must be an integer
+
+    >>> try:
+    ...     r3 = Rectangle(3, "world")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] height must be an integer
+
+4. Test Validation (Values <= 0):
+    >>> try:
+    ...     r4 = Rectangle(0, 5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] width must be greater than 0
+
+    >>> try:
+    ...     r5 = Rectangle(3, -10)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] height must be greater than 0
