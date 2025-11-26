@@ -17,7 +17,7 @@ Import the class:
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
 
-3. Test Invalid Types:
+3. Test Invalid Types (Strings, Floats, Bools):
     >>> try:
     ...     bg.integer_validator("name", "John")
     ... except Exception as e:
@@ -36,7 +36,7 @@ Import the class:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] flag must be an integer
 
-4. Test Complex Types:
+4. Test Complex Types (Tuples, Lists, Sets, None):
     >>> try:
     ...     bg.integer_validator("age", (4,))
     ... except Exception as e:
@@ -61,7 +61,7 @@ Import the class:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [TypeError] age must be an integer
 
-5. Test Invalid Values:
+5. Test Invalid Values (Zero, Negative):
     >>> try:
     ...     bg.integer_validator("age", 0)
     ... except Exception as e:
@@ -74,7 +74,7 @@ Import the class:
     ...     print("[{}] {}".format(e.__class__.__name__, e))
     [ValueError] distance must be greater than 0
 
-6. Test Missing Arguments:
+6. Test Missing Arguments (Using wildcards to match class names):
     >>> try:
     ...     bg.integer_validator()
     ... except Exception as e:
