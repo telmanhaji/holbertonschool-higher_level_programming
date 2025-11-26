@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module defines a function to check object inheritance.
-It demonstrates the concept of polymorphism inspection.
+This module defines a function that checks object inheritance.
+It is used to verify if an object is an instance of a class or its parent.
 """
 
 
@@ -18,6 +18,4 @@ def is_kind_of_class(obj, a_class):
         bool: True if obj is an instance or inherited from a_class,
               otherwise False.
     """
-    # isinstance() checks if 'obj' is an instance of 'a_class'
-    # OR any of its subclasses.
-    return isinstance(obj, a_class
+    return isinstance(obj, a_class)
