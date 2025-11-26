@@ -1,0 +1,45 @@
+================================
+Test file for Square
+================================
+
+Import the class:
+    >>> Square = __import__('10-square').Square
+
+1. Test Valid Instantiation:
+    >>> s = Square(5)
+    >>> print(s)
+    [Rectangle] 5/5
+    >>> s.area()
+    25
+
+2. Test Inheritance:
+    >>> Rectangle = __import__('9-rectangle').Rectangle
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> isinstance(s, Square)
+    True
+    >>> isinstance(s, Rectangle)
+    True
+    >>> isinstance(s, BaseGeometry)
+    True
+
+3. Test Validation (Inherited from BaseGeometry):
+    # Test String
+    >>> try:
+    ...     s = Square("hello")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] size must be an integer
+
+    # Test Negative
+    >>> try:
+    ...     s = Square(-5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] size must be greater than 0
+
+    # Test Zero
+    >>> try:
+    ...     s = Square(0)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] size must be greater than 0
