@@ -1,0 +1,70 @@
+Trying:
+    Square = __import__('11-square').Square
+Expecting nothing
+ok
+Trying:
+    s = Square(5)
+Expecting nothing
+ok
+Trying:
+    print(s)
+Expecting:
+    [Square] 5/5
+ok
+Trying:
+    s.area()
+Expecting:
+    25
+ok
+Trying:
+    Rectangle = __import__('9-rectangle').Rectangle
+Expecting nothing
+ok
+Trying:
+    BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Expecting nothing
+ok
+Trying:
+    isinstance(s, Square)
+Expecting:
+    True
+ok
+Trying:
+    isinstance(s, Rectangle)
+Expecting:
+    True
+ok
+Trying:
+    isinstance(s, BaseGeometry)
+Expecting:
+    True
+ok
+Trying:
+    try:
+        s = Square("hello")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] size must be an integer
+ok
+Trying:
+    try:
+        s = Square(-5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] size must be greater than 0
+ok
+Trying:
+    try:
+        s = Square(0)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] size must be greater than 0
+ok
+1 items passed all tests:
+  12 tests in 11-square.txt
+12 tests in 1 items.
+12 passed and 0 failed.
+Test passed.
