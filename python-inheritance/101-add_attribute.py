@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines a function that attempts to add a new attribute to an object.
+module defines a function that attempts to add a new attribute to an object.
 It demonstrates checking object capabilities/mutability before assignment.
 """
 
@@ -19,7 +19,7 @@ def add_attribute(obj, name, value):
     """
     # In Python, objects that allow arbitrary new attributes usually
     # have a __dict__ attribute. Built-in types (str, int) do not.
-    # Slots are a special case, but checking __dict__ covers the requirement here.
+    # Slots are a special case, checking __dict__ covers the requirement here.
     if not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
 
