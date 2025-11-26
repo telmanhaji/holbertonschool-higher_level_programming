@@ -1,0 +1,46 @@
+================================
+Test file for Rectangle (Full Implementation)
+================================
+
+Import the class:
+    >>> Rectangle = __import__('9-rectangle').Rectangle
+
+1. Test Valid Instantiation and String Representation:
+    >>> r = Rectangle(3, 5)
+    >>> print(r)
+    [Rectangle] 3/5
+
+2. Test Area Calculation:
+    # The parent class raised an Exception here.
+    # The child class must return the integer 15.
+    >>> r.area()
+    15
+
+3. Test Inheritance:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> isinstance(r, BaseGeometry)
+    True
+    >>> isinstance(r, Rectangle)
+    True
+
+4. Test Validation (Inherited Logic):
+    # Passing strings should still raise TypeError (thanks to BaseGeometry)
+    >>> try:
+    ...     r2 = Rectangle("hello", 5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] width must be an integer
+
+    # Passing negatives should still raise ValueError
+    >>> try:
+    ...     r3 = Rectangle(3, -5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] height must be greater than 0
+
+    # Passing zero should raise ValueError
+    >>> try:
+    ...     r4 = Rectangle(0, 5)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] width must be greater than 0
