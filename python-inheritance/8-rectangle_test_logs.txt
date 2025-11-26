@@ -1,0 +1,75 @@
+Trying:
+    Rectangle = __import__('8-rectangle').Rectangle
+Expecting nothing
+ok
+Trying:
+    r = Rectangle(3, 5)
+Expecting nothing
+ok
+Trying:
+    isinstance(r, Rectangle)
+Expecting:
+    True
+ok
+Trying:
+    BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Expecting nothing
+ok
+Trying:
+    isinstance(r, BaseGeometry)
+Expecting:
+    True
+ok
+Trying:
+    try:
+        print(r.width)
+    except AttributeError as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [AttributeError] 'Rectangle' object has no attribute 'width'
+ok
+Trying:
+    try:
+        print(r.__width)
+    except AttributeError as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [AttributeError] 'Rectangle' object has no attribute '__width'
+ok
+Trying:
+    try:
+        r2 = Rectangle("hello", 5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] width must be an integer
+ok
+Trying:
+    try:
+        r3 = Rectangle(3, "world")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [TypeError] height must be an integer
+ok
+Trying:
+    try:
+        r4 = Rectangle(0, 5)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] width must be greater than 0
+ok
+Trying:
+    try:
+        r5 = Rectangle(3, -10)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+Expecting:
+    [ValueError] height must be greater than 0
+ok
+1 items passed all tests:
+  11 tests in 8-rectangle.txt
+11 tests in 1 items.
+11 passed and 0 failed.
+Test passed.
