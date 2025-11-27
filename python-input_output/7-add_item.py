@@ -5,7 +5,7 @@ It demonstrates persistence by loading old data,updating it and saving it back.
 """
 import sys
 
-# We use the special __import__ syntax because the filenames start with numbers.
+# Using the special __import__ syntax because the filenames start with numbers.
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
