@@ -16,10 +16,10 @@ def convert_csv_to_json(csv_filename):
     try:
         # Step 1: Open the CSV file for reading
         with open(csv_filename, mode='r', encoding='utf-8') as csv_file:
-            # DictReader uses the first row (headers) as keys for the dictionary
+            # DictReader uses the headers as keys for the dictionary
             reader = csv.DictReader(csv_file)
 
-            # Convert the reader object into a standard Python list of dictionaries
+            # Convert the reader object into a std Python list of dictionaries
             data_list = list(reader)
 
         # Step 2: Open/Create the JSON file for writing
