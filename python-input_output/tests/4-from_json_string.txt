@@ -1,0 +1,40 @@
+================================
+Test file for from_json_string
+================================
+
+Import the function:
+    >>> from_json_string = __import__('4-from_json_string').from_json_string
+
+1. Test converting a String to a List:
+    >>> s_my_list = "[1, 2, 3]"
+    >>> my_list = from_json_string(s_my_list)
+    >>> print(my_list)
+    [1, 2, 3]
+    >>> print(type(my_list))
+    <class 'list'>
+
+2. Test converting a String to a Dictionary:
+    >>> s_my_dict = '{"id": 12, "name": "John", "is_active": true}'
+    >>> my_dict = from_json_string(s_my_dict)
+    >>> print(my_dict)
+    {'id': 12, 'name': 'John', 'is_active': True}
+    >>> print(type(my_dict))
+    <class 'dict'>
+
+3. Test with Mixed Structures:
+    >>> s_mixed = '[{"a": 1}, "b", 3]'
+    >>> mixed = from_json_string(s_mixed)
+    >>> print(mixed)
+    [{'a': 1}, 'b', 3]
+    >>> print(type(mixed))
+    <class 'list'>
+
+4. Test Expected Failure (Invalid JSON):
+    # JSON requires double quotes for strings. Single quotes are invalid JSON.
+    >>> try:
+    ...     s_bad = "{'id': 12}"
+    ...     from_json_string(s_bad)
+    ... except Exception as e:
+    ...     # We just check that an error was raised, exact message varies by version
+    ...     print("[JSONDecodeError] Error detected")
+    [JSONDecodeError] Error detected
