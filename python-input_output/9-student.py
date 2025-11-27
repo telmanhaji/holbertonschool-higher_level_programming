@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This module defines a Student class.
-It demonstrates how to create a class that can serialize itself to a dictionary.
+It demonstrates how to create a class that can serialize itself to dictionary.
 """
 
 
