@@ -1,0 +1,48 @@
+================================
+Test file for Student class with Filter
+================================
+
+Import the class:
+    >>> Student = __import__('10-student').Student
+
+1. Test Initialization:
+    >>> student_1 = Student("John", "Doe", 23)
+    >>> student_2 = Student("Bob", "Dylan", 27)
+
+2. Test Default to_json (No Filter):
+    >>> j_1 = student_1.to_json()
+    >>> print(j_1['first_name'])
+    John
+    >>> print(j_1['age'])
+    23
+
+3. Test Valid Filter (List of Strings):
+    >>> j_2 = student_2.to_json(['first_name', 'age'])
+    >>> print(j_2)
+    {'first_name': 'Bob', 'age': 27}
+    >>> print('last_name' in j_2)
+    False
+
+4. Test Filter with Missing Keys (Should be ignored):
+    >>> j_3 = student_2.to_json(['middle_name', 'age'])
+    >>> print(j_3)
+    {'age': 27}
+
+5. Test Invalid Filters (Should return everything):
+    # Not a list
+    >>> j_4 = student_2.to_json("first_name")
+    >>> print(len(j_4))
+    3
+
+    # List of mixed types
+    >>> j_5 = student_2.to_json(['first_name', 123])
+    >>> print(len(j_5))
+    3
+
+6. Test Documentation:
+    >>> print(len(__import__("10-student").__doc__) > 0)
+    True
+    >>> print(len(Student.__doc__) > 0)
+    True
+    >>> print(len(Student.to_json.__doc__) > 0)
+    True
