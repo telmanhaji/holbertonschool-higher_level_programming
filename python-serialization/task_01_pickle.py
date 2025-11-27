@@ -32,7 +32,7 @@ class CustomObject:
             filename (str): The name of the file to save to.
         """
         try:
-            # We must use 'wb' (Write Binary) because pickle writes bytes, not text.
+            # We must use Write Binary because pickle writes bytes, not text.
             with open(filename, 'wb') as f:
                 pickle.dump(self, f)
         except Exception:
