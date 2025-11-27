@@ -1,0 +1,45 @@
+================================
+Test file for Student class
+================================
+
+Import the class:
+    >>> Student = __import__('9-student').Student
+
+1. Test Initialization:
+    >>> student_1 = Student("John", "Doe", 23)
+    >>> print(student_1.first_name)
+    John
+    >>> print(student_1.last_name)
+    Doe
+    >>> print(student_1.age)
+    23
+
+2. Test to_json() method:
+    >>> j_student_1 = student_1.to_json()
+    >>> print(type(j_student_1))
+    <class 'dict'>
+    >>> # Check if dictionary contains correct data
+    >>> print(j_student_1['first_name'])
+    John
+    >>> print(j_student_1['last_name'])
+    Doe
+    >>> print(j_student_1['age'])
+    23
+
+3. Test with another instance (Bob):
+    >>> student_2 = Student("Bob", "Dylan", 27)
+    >>> j_student_2 = student_2.to_json()
+    >>> print(j_student_2['first_name'])
+    Bob
+    >>> print(j_student_2['age'])
+    27
+
+4. Test Documentation (Mandatory):
+    >>> print(len(__import__("9-student").__doc__) > 0)
+    True
+    >>> print(len(Student.__doc__) > 0)
+    True
+    >>> print(len(Student.__init__.__doc__) > 0)
+    True
+    >>> print(len(Student.to_json.__doc__) > 0)
+    True
