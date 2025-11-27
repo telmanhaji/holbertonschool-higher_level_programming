@@ -1,0 +1,109 @@
+Trying:
+    load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+Expecting nothing
+ok
+Trying:
+    import json
+Expecting nothing
+ok
+Trying:
+    import os
+Expecting nothing
+ok
+Trying:
+    filename = "my_list.json"
+Expecting nothing
+ok
+Trying:
+    with open(filename, "w") as f: json.dump([1, 2, 3], f)
+Expecting nothing
+ok
+Trying:
+    my_list = load_from_json_file(filename)
+Expecting nothing
+ok
+Trying:
+    print(my_list)
+Expecting:
+    [1, 2, 3]
+ok
+Trying:
+    print(type(my_list))
+Expecting:
+    <class 'list'>
+ok
+Trying:
+    filename = "my_dict.json"
+Expecting nothing
+ok
+Trying:
+    my_dict_data = {"id": 10, "name": "Test"}
+Expecting nothing
+ok
+Trying:
+    with open(filename, "w") as f: json.dump(my_dict_data, f)
+Expecting nothing
+ok
+Trying:
+    my_dict = load_from_json_file(filename)
+Expecting nothing
+ok
+Trying:
+    print(my_dict)
+Expecting:
+    {'id': 10, 'name': 'Test'}
+ok
+Trying:
+    print(type(my_dict))
+Expecting:
+    <class 'dict'>
+ok
+Trying:
+    try:
+        load_from_json_file("non_existent_file.json")
+    except FileNotFoundError:
+        print("[FileNotFoundError] File not found")
+Expecting:
+    [FileNotFoundError] File not found
+ok
+Trying:
+    filename = "bad_json.json"
+Expecting nothing
+ok
+Trying:
+    with open(filename, "w") as f: f.write("{'id': 10}") # Single quotes are invalid JSON
+Expecting nothing
+**********************************************************************
+File "tests/6-load_from_json_file.txt", line 38, in 6-load_from_json_file.txt
+Failed example:
+    with open(filename, "w") as f: f.write("{'id': 10}") # Single quotes are invalid JSON
+Expected nothing
+Got:
+    10
+Trying:
+    try:
+        load_from_json_file(filename)
+    except Exception:
+        # We catch general Exception because JSON error messages vary by version
+        print("[JSONDecodeError] Invalid JSON")
+Expecting:
+    [JSONDecodeError] Invalid JSON
+ok
+Trying:
+    if os.path.exists("my_list.json"): os.remove("my_list.json")
+Expecting nothing
+ok
+Trying:
+    if os.path.exists("my_dict.json"): os.remove("my_dict.json")
+Expecting nothing
+ok
+Trying:
+    if os.path.exists("bad_json.json"): os.remove("bad_json.json")
+Expecting nothing
+ok
+**********************************************************************
+1 items had failures:
+   1 of  21 in 6-load_from_json_file.txt
+21 tests in 1 items.
+20 passed and 1 failed.
+***Test Failed*** 1 failures.
