@@ -1,0 +1,41 @@
+================================
+Test file for Student reload_from_json
+================================
+
+Import the class:
+    >>> Student = __import__('11-student').Student
+
+1. Test Initialization:
+    >>> student_1 = Student("John", "Doe", 23)
+    >>> print(student_1.first_name)
+    John
+    >>> print(student_1.age)
+    23
+
+2. Test Reloading Data:
+    >>> new_data = {'first_name': "Bob", 'age': 45}
+    >>> student_1.reload_from_json(new_data)
+    >>> # Check if attributes changed
+    >>> print(student_1.first_name)
+    Bob
+    >>> print(student_1.age)
+    45
+    >>> # Check that last_name remained untouched (since it wasn't in new_data)
+    >>> print(student_1.last_name)
+    Doe
+
+3. Test Reloading with New Attributes (Flexibility):
+    # This demonstrates that python objects are dynamic.
+    # reload_from_json can technically add new fields if the dict has them.
+    >>> extra_data = {'github': "bob_dev"}
+    >>> student_1.reload_from_json(extra_data)
+    >>> print(student_1.github)
+    bob_dev
+
+4. Test Documentation:
+    >>> print(len(__import__("11-student").__doc__) > 0)
+    True
+    >>> print(len(Student.__doc__) > 0)
+    True
+    >>> print(len(Student.reload_from_json.__doc__) > 0)
+    True
