@@ -1,5 +1,6 @@
 import json
 
+
 def serialize_and_save_to_file(data, filename):
     """
     Takes a Python dictionary (data) and saves it to a file in JSON format.
@@ -10,6 +11,7 @@ def serialize_and_save_to_file(data, filename):
     with open(filename, 'w') as f:
         # json.dump takes the object and the file handler
         json.dump(data, f)
+
 
 def load_and_deserialize(filename):
     """
