@@ -1,0 +1,40 @@
+================================
+Test file for save_to_json_file
+================================
+
+Import the function:
+    >>> save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+    >>> import os
+
+1. Test saving a List:
+    >>> filename = "test_list.json"
+    >>> my_list = [1, 2, 3]
+    >>> save_to_json_file(my_list, filename)
+    >>> # Verify content matches JSON format
+    >>> with open(filename, "r") as f: print(f.read())
+    [1, 2, 3]
+
+2. Test saving a Dictionary:
+    >>> filename = "test_dict.json"
+    >>> my_dict = {"id": 10, "name": "Test"}
+    >>> save_to_json_file(my_dict, filename)
+    >>> with open(filename, "r") as f: print(f.read())
+    {"id": 10, "name": "Test"}
+
+3. Test Overwriting (Persistence):
+    >>> # Write new data to the same file
+    >>> save_to_json_file([4, 5, 6], "test_list.json")
+    >>> with open("test_list.json", "r") as f: print(f.read())
+    [4, 5, 6]
+
+4. Test Expected Failure (Unserializable Object):
+    >>> try:
+    ...     my_set = {1, 2}
+    ...     save_to_json_file(my_set, "test_fail.json")
+    ... except TypeError as e:
+    ...     print("[TypeError] Object of type set is not JSON serializable")
+    [TypeError] Object of type set is not JSON serializable
+
+Cleanup:
+    >>> if os.path.exists("test_list.json"): os.remove("test_list.json")
+    >>> if os.path.exists("test_dict.json"): os.remove("test_dict.json")
