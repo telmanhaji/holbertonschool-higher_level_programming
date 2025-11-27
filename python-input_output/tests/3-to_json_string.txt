@@ -1,0 +1,42 @@
+================================
+Test file for to_json_string
+================================
+
+Import the function:
+    >>> to_json_string = __import__('3-to_json_string').to_json_string
+
+1. Test with a List:
+    >>> my_list = [1, 2, 3]
+    >>> s_my_list = to_json_string(my_list)
+    >>> print(s_my_list)
+    [1, 2, 3]
+    >>> print(type(s_my_list))
+    <class 'str'>
+
+2. Test with a Dictionary:
+    >>> my_dict = {'id': 12, 'name': "John", 'is_active': True}
+    >>> s_my_dict = to_json_string(my_dict)
+    >>> # Note: JSON format uses double quotes for strings, unlike Python's single quotes
+    >>> print(s_my_dict)
+    {"id": 12, "name": "John", "is_active": true}
+    >>> print(type(s_my_dict))
+    <class 'str'>
+
+3. Test with Mixed Types:
+    >>> mixed = [1, "Hello", {"a": 1}]
+    >>> print(to_json_string(mixed))
+    [1, "Hello", {"a": 1}]
+
+4. Test with Strings and Integers (Primitives):
+    >>> print(to_json_string("Hello World"))
+    "Hello World"
+    >>> print(to_json_string(123))
+    123
+
+5. Test Expected Failure (Sets are not JSON serializable):
+    >>> try:
+    ...     my_set = {1, 2, 3}
+    ...     print(to_json_string(my_set))
+    ... except TypeError as e:
+    ...     print("[TypeError] Object of type set is not JSON serializable")
+    [TypeError] Object of type set is not JSON serializable
