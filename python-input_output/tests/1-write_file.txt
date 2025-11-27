@@ -1,0 +1,31 @@
+================================
+Test file for write_file
+================================
+
+Import the function:
+    >>> write_file = __import__('1-write_file').write_file
+
+Test 1: Write a simple sentence to a new file:
+    >>> filename = "test_file_1.txt"
+    >>> text = "This is a test."
+    >>> count = write_file(filename, text)
+    >>> print(count)
+    15
+    >>> with open(filename, "r", encoding="utf-8") as f:
+    ...     print(f.read())
+    This is a test.
+
+Test 2: Overwrite the file (persistence check):
+    >>> text_2 = "New content."
+    >>> count = write_file(filename, text_2)
+    >>> print(count)
+    12
+    >>> with open(filename, "r", encoding="utf-8") as f:
+    ...     print(f.read())
+    New content.
+
+Test documentation:
+    >>> print(len(__import__("1-write_file").__doc__) > 0)
+    True
+    >>> print(len(write_file.__doc__) > 0)
+    True
