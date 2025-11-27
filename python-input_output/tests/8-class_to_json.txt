@@ -1,0 +1,42 @@
+================================
+Test file for class_to_json
+================================
+
+Import the function:
+    >>> class_to_json = __import__('8-class_to_json').class_to_json
+
+1. Define a simple class for testing:
+    >>> class MyClass:
+    ...     def __init__(self, name):
+    ...         self.name = name
+    ...         self.number = 0
+
+2. Test Basic Extraction:
+    >>> m = MyClass("John")
+    >>> m.number = 89
+    >>> json_dict = class_to_json(m)
+    >>> print(json_dict['name'])
+    John
+    >>> print(json_dict['number'])
+    89
+    >>> print(type(json_dict))
+    <class 'dict'>
+
+3. Test with Complex Types (Lists and Dicts inside the object):
+    >>> class ComplexObject:
+    ...     def __init__(self):
+    ...         self.scores = [1, 2, 3]
+    ...         self.info = {'age': 20}
+
+    >>> c = ComplexObject()
+    >>> res = class_to_json(c)
+    >>> print(res['scores'])
+    [1, 2, 3]
+    >>> print(res['info'])
+    {'age': 20}
+
+4. Test Dynamic Attributes (Adding data on the fly):
+    >>> m.extra_data = "Secret"
+    >>> res = class_to_json(m)
+    >>> print(res['extra_data'])
+    Secret
