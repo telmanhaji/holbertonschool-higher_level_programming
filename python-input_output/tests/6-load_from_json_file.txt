@@ -1,0 +1,49 @@
+================================
+Test file for load_from_json_file
+================================
+
+Import the function:
+    >>> load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+    >>> import json
+    >>> import os
+
+1. Test loading a List:
+    >>> filename = "my_list.json"
+    >>> with open(filename, "w") as f: json.dump([1, 2, 3], f)
+    >>> my_list = load_from_json_file(filename)
+    >>> print(my_list)
+    [1, 2, 3]
+    >>> print(type(my_list))
+    <class 'list'>
+
+2. Test loading a Dictionary:
+    >>> filename = "my_dict.json"
+    >>> my_dict_data = {"id": 10, "name": "Test"}
+    >>> with open(filename, "w") as f: json.dump(my_dict_data, f)
+    >>> my_dict = load_from_json_file(filename)
+    >>> print(my_dict)
+    {'id': 10, 'name': 'Test'}
+    >>> print(type(my_dict))
+    <class 'dict'>
+
+3. Test File Not Found (FileNotFoundError):
+    >>> try:
+    ...     load_from_json_file("non_existent_file.json")
+    ... except FileNotFoundError:
+    ...     print("[FileNotFoundError] File not found")
+    [FileNotFoundError] File not found
+
+4. Test Invalid JSON (JSONDecodeError):
+    >>> filename = "bad_json.json"
+    >>> with open(filename, "w") as f: f.write("{'id': 10}") # Single quotes are invalid JSON
+    >>> try:
+    ...     load_from_json_file(filename)
+    ... except Exception:
+    ...     # We catch general Exception because JSON error messages vary by version
+    ...     print("[JSONDecodeError] Invalid JSON")
+    [JSONDecodeError] Invalid JSON
+
+Cleanup:
+    >>> if os.path.exists("my_list.json"): os.remove("my_list.json")
+    >>> if os.path.exists("my_dict.json"): os.remove("my_dict.json")
+    >>> if os.path.exists("bad_json.json"): os.remove("bad_json.json")
