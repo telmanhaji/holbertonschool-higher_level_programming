@@ -1,0 +1,31 @@
+================================
+Test file for append_write
+================================
+
+Import the function:
+    >>> append_write = __import__('2-append_write').append_write
+
+Test 1: Create a new file (if it doesn't exist):
+    >>> filename = "test_append.txt"
+    >>> # Ensure clean state
+    >>> with open(filename, "w") as f: f.write("")
+    0
+    >>> count = append_write(filename, "First Line.\n")
+    >>> print(count)
+    12
+    >>> with open(filename, "r") as f: print(f.read(), end="")
+    First Line.
+
+Test 2: Append to existing file (The critical check):
+    >>> count = append_write(filename, "Second Line.")
+    >>> print(count)
+    12
+    >>> with open(filename, "r") as f: print(f.read(), end="")
+    First Line.
+    Second Line.
+
+Test documentation:
+    >>> print(len(__import__("2-append_write").__doc__) > 0)
+    True
+    >>> print(len(append_write.__doc__) > 0)
+    True
