@@ -1,0 +1,19 @@
+================================
+Test file for read_file
+================================
+
+Import the function:
+    >>> read_file = __import__('0-read_file').read_file
+
+Test reading a standard file (Prerequisite: Create 'my_file_0.txt' first):
+    >>> with open("my_file_0.txt", "w", encoding="utf-8") as f:
+    ...     f.write("Hello World!\n")
+    13
+    >>> read_file("my_file_0.txt")
+    Hello World!
+
+Test documentation (Mandatory check):
+    >>> print(len(__import__("0-read_file").__doc__) > 0)
+    True
+    >>> print(len(read_file.__doc__) > 0)
+    True
