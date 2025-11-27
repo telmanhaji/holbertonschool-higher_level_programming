@@ -1,19 +1,9 @@
-================================
-Test file for read_file
-================================
+We offer a truly innovative approach to education:
+focus on building reliable applications and scalable systems, take on real-world challenges, collaborate with your peers. 
 
-Import the function:
-    >>> read_file = __import__('0-read_file').read_file
+A school every software engineer would have dreamt of!
+guillaume@ubuntu:~/$ ./0-main.py
+We offer a truly innovative approach to education:
+focus on building reliable applications and scalable systems, take on real-world challenges, collaborate with your peers. 
 
-Test reading a standard file (Prerequisite: Create 'my_file_0.txt' first):
-    >>> with open("my_file_0.txt", "w", encoding="utf-8") as f:
-    ...     f.write("Hello World!\n")
-    13
-    >>> read_file("my_file_0.txt")
-    Hello World!
-
-Test documentation (Mandatory check):
-    >>> print(len(__import__("0-read_file").__doc__) > 0)
-    True
-    >>> print(len(read_file.__doc__) > 0)
-    True
+A school every software engineer would have dreamt of!
