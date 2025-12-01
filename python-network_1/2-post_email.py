@@ -1,44 +1,30 @@
-#!/usr/bin/python3
+# !/usr/bin/python3
 """
-this module sends a POST request to a URL with an email parameter
-and displays the decoded response body.
+This script takes a URL and an email, sends a POST request to the passed URL
+with the email as a parameter, and displays the body of the response.
 """
-import sys
 import urllib.request
 import urllib.parse
-import urllib.error
+import sys
 
 if __name__ == "__main__":
-    # retrieve URL and email from command-line arguments
-    url = sys.argv[8]
-    user_email = sys.argv[9]
+    # 1. Get arguments
+    url = sys.argv[1]
+    email = sys.argv[2]
 
-    # prepare data dictionary (key must be 'email' as specified)
-    values = {'email': user_email}
+    # 2. Prepare the Data
+    # We create a dictionary of our data
+    values = {'email': email}
 
-    # encode data and convert to bytes
-    # urllib.parse.urlencode() is used for encoding HTML form data [2, 4, 10].
-    data = urllib.parse.urlencode(values)
-    data = data.encode('ascii')  # data must be bytes [2, 10, 11]
+    # We must encode the data into a query string (format: key=value)
+    # and then encode that string into bytes (ascii)
+    data = urllib.parse.urlencode(values).encode('ascii')
 
-    # create a Request object. The presence of 'data' ensures it is a POST request [2, 5].
+    # 3. Create the Request object
+    # By passing the 'data' argument, urllib automatically uses the POST method
     req = urllib.request.Request(url, data)
 
-    try:
-        # send the request and handle the connection safely using 'with' [3]
-        with urllib.request.urlopen(req) as response:
-            # read the raw body (bytes) [3]
-            body = response.read()
-
-            # decode the bytes into a UTF-8 string [12-14]
-            decoded_body = body.decode('utf-8')
-
-            # display the decoded body
-            print(decoded_body)
-
-    # although not explicitly required, this handles connection errors
-    except urllib.error.URLError as e:
-        if hasattr(e, 'reason'):
-            print(f"Failed to reach server: {e.reason}")
-        elif hasattr(e, 'code'):
-            print(f"HTTP Error: {e.code}")
+    # 4. Send the Request and Read Response
+    with urllib.request.urlopen(req) as response:
+        body = response.read()
+        print(body.decode('utf-8'))
