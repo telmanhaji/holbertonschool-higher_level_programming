@@ -1,0 +1,52 @@
+================================
+Test file for append_after
+================================
+
+Import the function:
+    >>> append_after = __import__('100-append_after').append_after
+    >>> import os
+
+Setup: Create a dummy file
+    >>> filename = "test_append.txt"
+    >>> with open(filename, "w") as f:
+    ...     f.write("Line 1\nLine 2\nLine 3\n")
+    21
+
+Test 1: Insert after a specific line:
+    >>> append_after(filename, "Line 2", "Inserted Line!\n")
+    >>> with open(filename, "r") as f: print(f.read(), end="")
+    Line 1
+    Line 2
+    Inserted Line!
+    Line 3
+
+Test 2: Multiple matches (should insert multiple times):
+    >>> # Reset file to have duplicates
+    >>> with open(filename, "w") as f:
+    ...     f.write("Hello\nWorld\nHello\n")
+    18
+    >>> append_after(filename, "Hello", "There\n")
+    >>> with open(filename, "r") as f: print(f.read(), end="")
+    Hello
+    There
+    World
+    Hello
+    There
+
+Test 3: No match (file should be unchanged):
+    >>> append_after(filename, "Missing", "Bad\n")
+    >>> with open(filename, "r") as f: print(f.read(), end="")
+    Hello
+    There
+    World
+    Hello
+    There
+
+Test Documentation:
+    >>> print(len(__import__("100-append_after").__doc__) > 0)
+    True
+    >>> print(len(append_after.__doc__) > 0)
+    True
+
+Cleanup:
+    >>> if os.path.exists(filename): os.remove(filename)
