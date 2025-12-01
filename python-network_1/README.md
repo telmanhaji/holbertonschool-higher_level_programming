@@ -3,9 +3,6 @@
 This project introduces the foundations of networking in Python. You will learn how to fetch internet resources, manipulate data from external services, and handle HTTP requests using both the standard `urllib` library and the more user-friendly `requests` package.
 
 ## 📚 Resources
-
-**Read or watch:**
-
 * [Quickstart with Requests package](https://requests.readthedocs.io/en/latest/user/quickstart/)
 * [Requests package](https://requests.readthedocs.io/en/latest/)
 
