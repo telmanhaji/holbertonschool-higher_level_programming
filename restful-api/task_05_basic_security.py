@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 API security and authentication techniques.
-this module demonstrates Basic Auth, JWT Auth, and Role-Based Access Control (RBAC).
+this module demonstrates Basic Auth, JWT Auth, and Role-Based Access Control
 """
 from flask import Flask, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -14,7 +14,8 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()  # For Basic Auth
 
 # configuration for JWT
-app.config['JWT_SECRET_KEY'] = 'your-strong-secret-key'  # Change this in production
+# Change this in production
+app.config['JWT_SECRET_KEY'] = 'your-strong-secret-key'
 jwt = JWTManager(app)
 
 # --- USER DATA STORAGE ---
