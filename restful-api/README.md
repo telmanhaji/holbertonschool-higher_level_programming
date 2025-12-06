@@ -1,4 +1,3 @@
-Here is a professionally formatted text for your `README.md` file, optimized for GitHub.
 
 -----
 
