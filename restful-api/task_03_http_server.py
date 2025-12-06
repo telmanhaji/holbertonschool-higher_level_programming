@@ -7,6 +7,7 @@ This module for a simple API using Python with the `http.server`
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
+
 class SimpleAPIHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
@@ -30,6 +31,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Endpoint not found")
+
 
 if __name__ == "__main__":
     server_address = ('', 8000)
