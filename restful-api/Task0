@@ -1,0 +1,107 @@
+Task 0. Basics of HTTP/HTTPS.
+
+Part 1. Differences between http and https:
+- http (HyperText Transfer Protocol) transfers data in plain text over the internet.
+- https (HTTP Secure) adds an encryption layer using SSL/TLS.
+
+The key differences:
+Encryption:
+- http data is readable by anyone on the network.
+- https encrypts the data so it looks like garbage to an eavesdropper.
+
+Port:
+- http defaults to port 80.
+- https defaults to port 443.
+
+Trust:
+- http implies zero trust.
+- https uses certificates (PKI) to verify the server is who they say they are.
+
+
+Part 2: Structure of an HTTP Request and Response
+
+Request Structure:
+Start Line: METHOD + Path + HTTP Version (e.g., GET /login HTTP/1.1)
+Headers: Key-value pairs providing metadata (e.g., User-Agent: Chrome, Host: google.com).
+Body: (Optional) Data sent by the client (e.g., username=admin&password=123).
+
+Example:
+GET / HTTP/1.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9,az;q=0.8
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: cookiesession1=678A8C35E02A1D1A3CCFC25A908C74DC
+DNT: 1
+Host: isb.az
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+sec-ch-ua: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+
+Response Structure:
+Status Line: HTTP Version + Status Code + Message (e.g., HTTP/1.1 200 OK)
+Headers: Metadata from server (e.g., Server: Apache, Content-Type: text/html).
+Body: The content requested (e.g., The HTML code of the webpage).
+
+Example:
+HTTP/1.1 200 OK
+Date: Sat, 06 Dec 2025 10:42:49 GMT
+Server: Apache
+X-Powered-By: PHP/7.4.33
+Link: <https://isb.az/wp-json/>; rel="https://api.w.org/"
+Cache-Control: max-age=31536000
+Expires: Sun, 06 Dec 2026 10:42:49 GMT
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Connection: close
+Content-Type: text/html; charset=UTF-8
+Content-Length: 15818
+
+Part 3: Common HTTP Methods
+
+3.1 Common HTTP Methods.
+
+GET
+Description: Requests a representation of a resource. No data should be changed on the server.
+Use Case: Loading the homepage of a news site.
+
+POST
+Description: Submits data to be processed to a specified resource.
+Use Case: Submitting a "Contact Us" form or logging into a bank account.
+
+PUT
+Description: Uploads a representation of a specific resource (updates/replaces it).
+Use Case: Updating your profile bio via an API.
+
+DELETE
+Description: Deletes the specified resource.
+Use Case: Deleting a photo from your cloud storage.
+
+3.2 Common HTTP Status Codes
+
+200 OK
+Description: The request succeeded.
+Scenario: You type google.com and the page loads perfectly.
+
+301 Moved Permanently
+Description: The resource has moved to a new URL.
+Scenario: You visit http://mysite.com and are automatically redirected to https://mysite.com.
+
+403 Forbidden
+Description: The server understands the request but refuses to authorize it.
+Scenario: A student tries to access the /admin panel of the school website without credentials.
+
+404 Not Found
+Description: The server cannot find the requested resource.
+Scenario: You click a broken link or type a URL that doesn't exist.
+
+500 Internal Server Error
+Description: The server encountered an unexpected condition.
+Scenario: A developer makes a typo in the website's code, causing it to crash when you try to load it.
